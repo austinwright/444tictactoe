@@ -186,6 +186,7 @@
 }
 
 -(BOOL)checkForWinCondition {
+    return NO;
     // check for horizontal
 
     //check for vertical
