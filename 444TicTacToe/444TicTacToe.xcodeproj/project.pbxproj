@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2CD7723F6E31AE005DABB7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */; };
+		AC2CD9341D40249365835677 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AC2CD681E03726717D5A23D1 /* LICENSE */; };
+		AC2CD96D8E1DCB9F36C4CB8E /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDFE06D46DBB84DF12F34 /* BButton.m */; };
+		AC2CDE9F7B78A1F68B7D795A /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */; };
+		AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */; };
 		D94ADEE01E5FD668002F3593 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEDF1E5FD668002F3593 /* main.m */; };
 		D94ADEE31E5FD668002F3593 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEE21E5FD668002F3593 /* AppDelegate.m */; };
 		D94ADEE61E5FD668002F3593 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEE51E5FD668002F3593 /* ViewController.m */; };
@@ -36,6 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC2CD1CE3FA3A4F1179FA819 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		AC2CD681E03726717D5A23D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		AC2CD79072141F51A4EF6641 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		AC2CD8D480F901C234025831 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		AC2CDFE06D46DBB84DF12F34 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		D94ADEDB1E5FD668002F3593 /* 444TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 444TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94ADEDF1E5FD668002F3593 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D94ADEE11E5FD668002F3593 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +93,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC2CD59641F40E1A8A6A9CCE /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				AC2CDED18276E5B80DFDF98E /* Classes */,
+				AC2CD681E03726717D5A23D1 /* LICENSE */,
+				AC2CDAF991DDB03722DDD5C5 /* resources */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		AC2CDAF991DDB03722DDD5C5 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		AC2CDED18276E5B80DFDF98E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AC2CD1CE3FA3A4F1179FA819 /* BButton.h */,
+				AC2CDFE06D46DBB84DF12F34 /* BButton.m */,
+				AC2CD8D480F901C234025831 /* UIColor+BButton.h */,
+				AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */,
+				AC2CD79072141F51A4EF6641 /* NSString+FontAwesome.h */,
+				AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		D94ADED21E5FD667002F3593 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +157,7 @@
 				D94ADEF21E5FD668002F3593 /* Info.plist */,
 				D94ADEEA1E5FD668002F3593 /* _44TicTacToe.xcdatamodeld */,
 				D94ADEDE1E5FD668002F3593 /* Supporting Files */,
+				AC2CD59641F40E1A8A6A9CCE /* BButton */,
 			);
 			path = 444TicTacToe;
 			sourceTree = "<group>";
@@ -255,6 +300,8 @@
 				D94ADEF11E5FD668002F3593 /* LaunchScreen.storyboard in Resources */,
 				D94ADEEE1E5FD668002F3593 /* Assets.xcassets in Resources */,
 				D94ADEE91E5FD668002F3593 /* Main.storyboard in Resources */,
+				AC2CD9341D40249365835677 /* LICENSE in Resources */,
+				AC2CD7723F6E31AE005DABB7 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +330,9 @@
 				D94ADEE61E5FD668002F3593 /* ViewController.m in Sources */,
 				D94ADEE31E5FD668002F3593 /* AppDelegate.m in Sources */,
 				D94ADEE01E5FD668002F3593 /* main.m in Sources */,
+				AC2CD96D8E1DCB9F36C4CB8E /* BButton.m in Sources */,
+				AC2CDE9F7B78A1F68B7D795A /* UIColor+BButton.m in Sources */,
+				AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
