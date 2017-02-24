@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@class BButton;
+
+@interface MainViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray <NSMutableArray <NSNumber *> *> *gameStateMatrix;
 @property (nonatomic) BOOL isPlayerXTurn;
 
+@property(nonatomic) CGFloat maximizedCellWidth;
+@property(nonatomic) CGFloat maximizedTopBottomInset;
 @end
 
 typedef enum {

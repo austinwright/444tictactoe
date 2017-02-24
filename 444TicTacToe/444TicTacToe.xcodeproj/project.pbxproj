@@ -11,6 +11,8 @@
 		AC2CD7723F6E31AE005DABB7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */; };
 		AC2CD9341D40249365835677 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AC2CD681E03726717D5A23D1 /* LICENSE */; };
 		AC2CD96D8E1DCB9F36C4CB8E /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDFE06D46DBB84DF12F34 /* BButton.m */; };
+		AC2CD991DEB2B3F8368D4ED4 /* CurrentPlayerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */; };
+		AC2CDCDBB336AEBCDD690814 /* StartNewGameFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */; };
 		AC2CDE9F7B78A1F68B7D795A /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */; };
 		AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */; };
 		D94ADEE01E5FD668002F3593 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEDF1E5FD668002F3593 /* main.m */; };
@@ -23,8 +25,6 @@
 		D94ADEFC1E5FD668002F3593 /* _44TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEFB1E5FD668002F3593 /* _44TicTacToeTests.m */; };
 		D94ADF071E5FD668002F3593 /* _44TicTacToeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADF061E5FD668002F3593 /* _44TicTacToeUITests.m */; };
 		D94ADF1B1E5FF7E0002F3593 /* TicTacToeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D94ADF1A1E5FF7E0002F3593 /* TicTacToeCell.xib */; };
-		D94ADF1D1E5FF99A002F3593 /* CurrentPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D94ADF1C1E5FF99A002F3593 /* CurrentPlayer.xib */; };
-		D94ADF1F1E5FF9AB002F3593 /* NewGame.xib in Resources */ = {isa = PBXBuildFile; fileRef = D94ADF1E1E5FF9AB002F3593 /* NewGame.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC2CD1B469D346957AAF176E /* CurrentPlayerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPlayerHeaderView.h; sourceTree = "<group>"; };
 		AC2CD1CE3FA3A4F1179FA819 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartNewGameFooterView.m; sourceTree = "<group>"; };
+		AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPlayerHeaderView.m; sourceTree = "<group>"; };
 		AC2CD5ECA1ECE553D8A4B2F5 /* TicTacToeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicTacToeCell.h; sourceTree = "<group>"; };
 		AC2CD681E03726717D5A23D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AC2CD79072141F51A4EF6641 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
 		AC2CD8D480F901C234025831 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		AC2CD8ED0668AD293A2FACB4 /* StartNewGameFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartNewGameFooterView.h; sourceTree = "<group>"; };
 		AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
 		AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 		AC2CDD687D6D0C42E1BBC730 /* TicTacToeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicTacToeCell.m; sourceTree = "<group>"; };
@@ -73,8 +77,6 @@
 		D94ADF061E5FD668002F3593 /* _44TicTacToeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _44TicTacToeUITests.m; sourceTree = "<group>"; };
 		D94ADF081E5FD668002F3593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D94ADF1A1E5FF7E0002F3593 /* TicTacToeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicTacToeCell.xib; sourceTree = "<group>"; };
-		D94ADF1C1E5FF99A002F3593 /* CurrentPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentPlayer.xib; sourceTree = "<group>"; };
-		D94ADF1E1E5FF9AB002F3593 /* NewGame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewGame.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +170,12 @@
 				D94ADEDE1E5FD668002F3593 /* Supporting Files */,
 				AC2CD59641F40E1A8A6A9CCE /* BButton */,
 				D94ADF1A1E5FF7E0002F3593 /* TicTacToeCell.xib */,
-				D94ADF1C1E5FF99A002F3593 /* CurrentPlayer.xib */,
-				D94ADF1E1E5FF9AB002F3593 /* NewGame.xib */,
 				AC2CDD687D6D0C42E1BBC730 /* TicTacToeCell.m */,
 				AC2CD5ECA1ECE553D8A4B2F5 /* TicTacToeCell.h */,
+				AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */,
+				AC2CD1B469D346957AAF176E /* CurrentPlayerHeaderView.h */,
+				AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */,
+				AC2CD8ED0668AD293A2FACB4 /* StartNewGameFooterView.h */,
 			);
 			path = 444TicTacToe;
 			sourceTree = "<group>";
@@ -311,10 +315,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D94ADF1F1E5FF9AB002F3593 /* NewGame.xib in Resources */,
 				D94ADEF11E5FD668002F3593 /* LaunchScreen.storyboard in Resources */,
 				D94ADEEE1E5FD668002F3593 /* Assets.xcassets in Resources */,
-				D94ADF1D1E5FF99A002F3593 /* CurrentPlayer.xib in Resources */,
 				D94ADF1B1E5FF7E0002F3593 /* TicTacToeCell.xib in Resources */,
 				D94ADEE91E5FD668002F3593 /* Main.storyboard in Resources */,
 				AC2CD9341D40249365835677 /* LICENSE in Resources */,
@@ -351,6 +353,8 @@
 				AC2CDE9F7B78A1F68B7D795A /* UIColor+BButton.m in Sources */,
 				AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */,
 				AC2CD0356C84FEA88E3B9A0E /* TicTacToeCell.m in Sources */,
+				AC2CD991DEB2B3F8368D4ED4 /* CurrentPlayerHeaderView.m in Sources */,
+				AC2CDCDBB336AEBCDD690814 /* StartNewGameFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

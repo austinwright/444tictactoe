@@ -9,6 +9,12 @@
 #import "MainViewController.h"
 #import "TicTacToeCell.h"
 #import "NSString+FontAwesome.h"
+#import "BButton.h"
+#import "CurrentPlayerHeaderView.h"
+#import "StartNewGameFooterView.h"
+
+#define LEFT_RIGHT_CONTENT_INSET 50
+#define HEADER_FOOTER_HEIGHT 100
 
 @interface MainViewController ()
 
@@ -19,16 +25,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.gameStateMatrix = [self initializeGameState];
-    self.isPlayerXTurn = YES;
-    // Do any additional setup after loading the view, typically from a nib.
+    [self initializeGameState];
     [self.collectionView reloadData];
 }
 
-- (NSMutableArray *)initializeGameState {
+- (void)initializeGameState {
+    self.isPlayerXTurn = YES;
     NSMutableArray * rowStates = [@[@0, @0, @0, @0] mutableCopy];
     NSMutableArray * rows = [@[[rowStates mutableCopy], [rowStates mutableCopy], [rowStates mutableCopy], [rowStates mutableCopy]] mutableCopy];
-    return rows;
+    self.gameStateMatrix = rows;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    CGFloat screenWidth = self.collectionView.bounds.size.width;
+    CGFloat screenHeight = self.collectionView.bounds.size.height;
+    int numRows = (int) self.gameStateMatrix.count;
+    int numColumns = (int) self.gameStateMatrix[0].count;
+
+    // width less insets, less 1px spacing between cells, divided by number of columns
+    self.maximizedCellWidth = (screenWidth - LEFT_RIGHT_CONTENT_INSET*2 - (numColumns-1) ) / numColumns;
+
+    // height of the collection, less the header and footer, less the space between cells, less the size of the cells, divided by 2
+    self.maximizedTopBottomInset = (screenHeight - (HEADER_FOOTER_HEIGHT * 2) - (numRows - 1) - (numRows * self.maximizedCellWidth) ) / 2;
 }
 
 
@@ -67,6 +87,7 @@
 
 - (void) awakeFromNib{
     [self.collectionView registerNib:[UINib nibWithNibName:@"TicTacToeCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"TicTacToeCell"];
+    [super awakeFromNib];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,8 +103,9 @@
     int cellState = [self.gameStateMatrix[(NSUInteger) cellRow][(NSUInteger) cellColumn] intValue];
     if(cellState != GAME_CELL_STATE_EMPTY) {
         [ticTacToeCell.playerTokenLabel setHidden:NO];
-        ticTacToeCell.playerTokenLabel.text = cellState == GAME_CELL_STATE_X ? [NSString fa_stringForFontAwesomeIcon:FAIconTimes] : [NSString fa_stringForFontAwesomeIcon:FAIconCircleO];
+        ticTacToeCell.playerTokenLabel.text = cellState == GAME_CELL_STATE_X ? @"X" : @"O";//[NSString fa_stringForFontAwesomeIcon:FAIconTimes] : [NSString fa_stringForFontAwesomeIcon:FAIconCircleO];
     } else {
+        ticTacToeCell.userInteractionEnabled = YES;
         [ticTacToeCell.playerTokenLabel setHidden:YES];
     }
 
@@ -100,17 +122,79 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    int cellRow = [self getCellRowForIndexPath:indexPath];
-    int cellColumn = [self getCellColumnForIndexPath:indexPath];
-    int newCellState = self.isPlayerXTurn ? 1 : -1;
-
-    self.gameStateMatrix[(NSUInteger) cellRow][(NSUInteger) cellColumn] = @(newCellState);
-
-    self.isPlayerXTurn = !self.isPlayerXTurn;
-
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
 
-    [collectionView reloadData];
+    TicTacToeCell *cell = (TicTacToeCell *) [collectionView cellForItemAtIndexPath:indexPath];
+
+    int cellRow = [self getCellRowForIndexPath:indexPath];
+    int cellColumn = [self getCellColumnForIndexPath:indexPath];
+    int currentCellState = [self.gameStateMatrix[(NSUInteger) cellRow][(NSUInteger) cellColumn] intValue];
+    int newCellState = self.isPlayerXTurn ? 1 : -1;
+
+
+    if(currentCellState == GAME_CELL_STATE_EMPTY) {
+        self.gameStateMatrix[(NSUInteger) cellRow][(NSUInteger) cellColumn] = @(newCellState);
+        self.isPlayerXTurn = !self.isPlayerXTurn;
+        cell.userInteractionEnabled = NO;
+        [collectionView reloadData];
+    }
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableView = nil;
+
+    if (kind == UICollectionElementKindSectionHeader) {
+        CurrentPlayerHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                                 withReuseIdentifier:@"CurrentPlayerHeaderView" forIndexPath:indexPath];
+        NSString *XorO = [self isPlayerXTurn] ? @"X":@"O";//
+        // [NSString stringWithFormat:@"%@", [NSString fa_stringForFontAwesomeIcon:FAIconTimes]] :
+        //        [NSString stringWithFormat:@"%@", [NSString fa_stringForFontAwesomeIcon:FAIconCircleO]];
+        headerView.currentPlayerLabel.text = XorO;
+        reusableView = headerView;
+    }
+
+    if (kind == UICollectionElementKindSectionFooter) {
+        StartNewGameFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                                  withReuseIdentifier:@"StartNewGameFooterView" forIndexPath:indexPath];
+        [footerView.startNewGameButton setStyle:BButtonStyleBootstrapV3];
+        [footerView.startNewGameButton setButtonCornerRadius:@0];
+        [footerView.startNewGameButton setBackgroundColor:[UIColor colorWithRed:0.0f green:189/255 blue:172/255 alpha:1.0f]];
+        [footerView.startNewGameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+        reusableView = footerView;
+    }
+
+    return reusableView;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize result = CGSizeMake(self.maximizedCellWidth,self.maximizedCellWidth);
+    return result;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+
+
+    UIEdgeInsets result = UIEdgeInsetsMake(self.maximizedTopBottomInset, LEFT_RIGHT_CONTENT_INSET, self.maximizedTopBottomInset, LEFT_RIGHT_CONTENT_INSET);
+    return result;
+}
+
+
+- (IBAction)startNewGameButtonClicked:(BButton*)sender {
+    [self initializeGameState];
+    [self.collectionView reloadData];
+}
+
+-(BOOL)checkForWinCondition {
+    // check for horizontal
+
+    //check for vertical
+
+    //check for 0,0 diagonal
+
+    //check for 3,0 diagonal
+
+    //check for corners
 }
 
 @end
