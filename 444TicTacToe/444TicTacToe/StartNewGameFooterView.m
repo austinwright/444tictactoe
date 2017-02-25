@@ -4,8 +4,6 @@
 //
 
 #import "StartNewGameFooterView.h"
-#import "BButton.h"
-
 
 @implementation StartNewGameFooterView {
 

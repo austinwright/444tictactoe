@@ -17,6 +17,8 @@
 
 @property(nonatomic) CGFloat maximizedCellWidth;
 @property(nonatomic) CGFloat maximizedTopBottomInset;
+@property(nonatomic, copy) NSString *crossIcon;
+@property(nonatomic, copy) NSString *circleIcon;
 @end
 
 typedef enum {

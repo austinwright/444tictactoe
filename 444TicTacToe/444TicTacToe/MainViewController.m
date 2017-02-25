@@ -9,12 +9,11 @@
 #import "MainViewController.h"
 #import "TicTacToeCell.h"
 #import "NSString+FontAwesome.h"
-#import "BButton.h"
 #import "CurrentPlayerHeaderView.h"
 #import "StartNewGameFooterView.h"
 
 #define LEFT_RIGHT_CONTENT_INSET 50
-#define HEADER_FOOTER_HEIGHT 100
+#define HEADER_FOOTER_HEIGHT 125
 
 @interface MainViewController ()
 
@@ -25,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.crossIcon = [NSString fa_stringForFontAwesomeIcon:FAIconTimes];
+    self.circleIcon = [NSString fa_stringForFontAwesomeIcon:FAIconCircleO];
+    
     [self initializeGameState];
     [self.collectionView reloadData];
 }
@@ -68,21 +70,10 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 16;
 
-    // optimized for n,m,k
+    // optimized for n,m,k with at least 1 row
 //    int rowCount = [self.gameStateMatrix count];
 //    int columnCount = self.gameStateMatrix[0].count; // assuming we have at least 1 row
 //    return rowCount * columnCount;
-
-    // optimized for n,n,k
-//    int rowCount = [self.gameStateMatrix count];
-//    return rowCount * rowCount; // assumes equal-sided matrix
-
-    // brute force counter:
-//    int gridCount = 0;
-//    for(NSMutableArray * row in self.gameStateMatrix) {
-//        gridCount += row.count;
-//    }
-//    return gridCount;
 }
 
 - (void) awakeFromNib{
@@ -103,7 +94,7 @@
     int cellState = [self.gameStateMatrix[(NSUInteger) cellRow][(NSUInteger) cellColumn] intValue];
     if(cellState != GAME_CELL_STATE_EMPTY) {
         [ticTacToeCell.playerTokenLabel setHidden:NO];
-        ticTacToeCell.playerTokenLabel.text = cellState == GAME_CELL_STATE_X ? @"X" : @"O";//[NSString fa_stringForFontAwesomeIcon:FAIconTimes] : [NSString fa_stringForFontAwesomeIcon:FAIconCircleO];
+        ticTacToeCell.playerTokenLabel.text = cellState == GAME_CELL_STATE_X ? self.crossIcon : self.circleIcon;
     } else {
         ticTacToeCell.userInteractionEnabled = YES;
         [ticTacToeCell.playerTokenLabel setHidden:YES];
@@ -137,26 +128,15 @@
         cell.userInteractionEnabled = NO;
 
         if([self checkForWinCondition]) {
-            NSString *currentPlayerString = self.isPlayerXTurn ? @"X" : @"O";
+            NSString *currentPlayerString = self.isPlayerXTurn ? self.crossIcon : self.circleIcon;
             NSString *winString = [NSString stringWithFormat:@"Player %@ Wins!", currentPlayerString];
-            UIAlertController *winAlert = [UIAlertController alertControllerWithTitle:winString
-                                                                              message:@"Play Again?"
-                                                                       preferredStyle:UIAlertControllerStyleAlert];
-
-            UIAlertAction * startNewGameAction = [UIAlertAction actionWithTitle:@"New Game"
-                                                                          style:UIAlertActionStyleDefault
-                                                                        handler:^(UIAlertAction *action) {
-                                                                            [self startNewGameButtonClicked:self];
-                                                                        }];
-
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"Not Yet ..."
-                                                                          style:UIAlertActionStyleCancel
-                                                                        handler:nil];
-
-            [winAlert addAction:cancelAction];
-            [winAlert addAction:startNewGameAction];
-            [self presentViewController:winAlert animated:YES completion:nil];
-
+            NSMutableAttributedString *attributedWinString = [[NSMutableAttributedString alloc] initWithString:winString];
+            [attributedWinString addAttribute:NSFontAttributeName
+                                        value:[UIFont fontWithName:@"FontAwesome" size:20]
+                                        range:NSMakeRange(7,1)];
+            [self presentEndGameAlertWithTitle:winString optionalAttributedTitle:attributedWinString];
+        } else if([self checkForDrawCondition]) {
+            [self presentEndGameAlertWithTitle:@"It's a Draw!" optionalAttributedTitle:nil];
         } else {
             self.isPlayerXTurn = !self.isPlayerXTurn;
         }
@@ -165,15 +145,35 @@
     }
 }
 
+- (void)presentEndGameAlertWithTitle:(NSString*)titleString optionalAttributedTitle:(NSAttributedString * _Nullable)attributedString {
+    UIAlertController *endGameAlert = [UIAlertController alertControllerWithTitle:titleString
+                                                                      message:@"Play Again?"
+                                                               preferredStyle:UIAlertControllerStyleAlert];
+    
+    if(attributedString) [endGameAlert setValue:attributedString forKey:@"attributedTitle"]; // not sure if private API ...
+
+    UIAlertAction * startNewGameAction = [UIAlertAction actionWithTitle:@"New Game"
+                                                                  style:UIAlertActionStyleDestructive
+                                                                handler:^(UIAlertAction *action) {
+                                                                    [self startNewGameButtonClicked:self];
+                                                                }];
+
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"Not Yet ..."
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:nil];
+
+    [endGameAlert addAction:cancelAction];
+    [endGameAlert addAction:startNewGameAction];
+    [self presentViewController:endGameAlert animated:YES completion:nil];
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *reusableView = nil;
 
     if (kind == UICollectionElementKindSectionHeader) {
         CurrentPlayerHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                                  withReuseIdentifier:@"CurrentPlayerHeaderView" forIndexPath:indexPath];
-        NSString *XorO = [self isPlayerXTurn] ? @"X":@"O";//
-        // [NSString stringWithFormat:@"%@", [NSString fa_stringForFontAwesomeIcon:FAIconTimes]] :
-        //        [NSString stringWithFormat:@"%@", [NSString fa_stringForFontAwesomeIcon:FAIconCircleO]];
+        NSString *XorO = [self isPlayerXTurn] ? self.crossIcon : self.circleIcon;
         headerView.currentPlayerLabel.text = XorO;
         reusableView = headerView;
     }
@@ -181,15 +181,6 @@
     if (kind == UICollectionElementKindSectionFooter) {
         StartNewGameFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                                                                                   withReuseIdentifier:@"StartNewGameFooterView" forIndexPath:indexPath];
-//        footerView.startNewGameButton = [BButton buttonWithType:UIButtonTypeCustom];
-//        [footerView.startNewGameButton setStyle:BButtonStyleBootstrapV3];
-//        [footerView.startNewGameButton setButtonCornerRadius:@0];
-//        // todo: find out why BButton is misbehaving
-//        [footerView.startNewGameButton setBackgroundColor:[UIColor cyanColor]];//[UIColor colorWithRed:0.0f green:189/255 blue:172/255 alpha:0.0f]];
-//        [footerView.startNewGameButton titleLabel].backgroundColor = [UIColor cyanColor];
-//        [footerView.startNewGameButton titleLabel].textColor = [UIColor whiteColor];
-//        [footerView.startNewGameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal | UIControlStateSelected | UIControlStateHighlighted];
-
         reusableView = footerView;
     }
 
@@ -202,8 +193,6 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-
-
     UIEdgeInsets result = UIEdgeInsetsMake(self.maximizedTopBottomInset, LEFT_RIGHT_CONTENT_INSET, self.maximizedTopBottomInset, LEFT_RIGHT_CONTENT_INSET);
     return result;
 }
@@ -215,19 +204,16 @@
 }
 
 -(BOOL)checkForWinCondition {
-
-
     // self.gameStateMatrix[<Y INDEX>][<X INDEX>]
-    // if any count adds up to |4|, return true
+    // if any count adds up to |4| (or more), return true
 
     // finite checks first
-    //check for 0,0 diagonal
+    // check for 0,0 diagonal
     int backSlashDiagonal = self.gameStateMatrix[0][0].intValue + self.gameStateMatrix[1][1].intValue +
             self.gameStateMatrix[2][2].intValue + self.gameStateMatrix[3][3].intValue;
     if(abs(backSlashDiagonal) >= 4) {
         return YES;
     }
-
 
     //check for 3,0 diagonal
     int forwardSlashDiagonal = self.gameStateMatrix[0][3].intValue + self.gameStateMatrix[1][2].intValue +
@@ -243,17 +229,6 @@
         return YES;
     }
 
-    // todo: check for 2x2
-    // 0,0 ; 0,1 ; 1,0 ; 1,1 to 0,2 ; 0,3 ; 1,2 ; 1,3
-    // 1,0 ; 1,1 ; 2,0 ; 2,1 to 1,2 ; 1,3 ; 2,2 ; 2,3
-    // 2,0;2,1;2,0;2,1 to 0,2;0,3;1,2;1,3
-    // 2,0;2,1;2,0;2,1 to 0,2;0,3;1,2;1,3
-    int squareCount = self.gameStateMatrix[0][0].intValue + self.gameStateMatrix[0][1].intValue +
-            self.gameStateMatrix[1][0].intValue + self.gameStateMatrix[1][1].intValue;
-
-    // 1st pass brute force:
-    // check for horizontal
-    //check for vertical
     NSMutableArray <NSNumber*>* verticalCountArray = [NSMutableArray arrayWithCapacity:self.gameStateMatrix.count];
     // init the array just in case
     // todo verify if needed
@@ -267,12 +242,24 @@
             NSNumber * verticalCount = verticalCountArray[(NSUInteger) columnIndex];
             horizontalCount += [cellValue intValue];
             verticalCountArray[(NSUInteger) columnIndex] = @([cellValue intValue] + [verticalCount intValue]); // increment the column counter
+
+            // check for 2x2 squares
+            if(rowIndex < self.gameStateMatrix.count - 1 && columnIndex < self.gameStateMatrix[0].count - 1) { // skip the last row and column
+                int squareCount = self.gameStateMatrix[(NSUInteger) rowIndex][(NSUInteger) columnIndex].intValue +
+                        self.gameStateMatrix[(NSUInteger) rowIndex][(NSUInteger) (columnIndex + 1)].intValue +
+                        self.gameStateMatrix[(NSUInteger) (rowIndex + 1)][(NSUInteger) columnIndex].intValue +
+                        self.gameStateMatrix[(NSUInteger) (rowIndex + 1)][(NSUInteger) (columnIndex + 1)].intValue;
+                if(abs(squareCount) >= 4) {
+                    return YES;
+                }
+            }
         }
-        // done with a row, check for win
+        // done with a row, check for horizontal win condition
         if(abs(horizontalCount) >= 4) {
             return YES;
         }
     }
+    //check for vertical winConditions
     for(NSNumber* verticalCount in verticalCountArray) {
         if(abs([verticalCount intValue]) >= 4) {
             return YES;
@@ -280,6 +267,15 @@
     }
 
     return NO;
+}
+
+-(BOOL)checkForDrawCondition {
+    for(NSMutableArray <NSNumber*>* row in self.gameStateMatrix) {
+        if([row containsObject:@0]) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 @end
