@@ -36,6 +36,7 @@
     NSMutableArray * rowStates = [@[@0, @0, @0, @0] mutableCopy];
     NSMutableArray * rows = [@[[rowStates mutableCopy], [rowStates mutableCopy], [rowStates mutableCopy], [rowStates mutableCopy]] mutableCopy];
     self.gameStateMatrix = rows;
+    self.isGameOver = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,6 +88,7 @@
     TicTacToeCell *ticTacToeCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     if(!ticTacToeCell) {
         NSLog(@"ticTacToeCell is nil.");
+        return ticTacToeCell;
     }
 
     int cellRow = [self getCellRowForIndexPath:indexPath];
@@ -96,7 +98,7 @@
         [ticTacToeCell.playerTokenLabel setHidden:NO];
         ticTacToeCell.playerTokenLabel.text = cellState == GAME_CELL_STATE_X ? self.crossIcon : self.circleIcon;
     } else {
-        ticTacToeCell.userInteractionEnabled = YES;
+        ticTacToeCell.userInteractionEnabled = !self.isGameOver;
         [ticTacToeCell.playerTokenLabel setHidden:YES];
     }
 
@@ -125,7 +127,7 @@
 
     if(currentCellState == GAME_CELL_STATE_EMPTY) {
         self.gameStateMatrix[(NSUInteger) cellRow][(NSUInteger) cellColumn] = @(newCellState);
-        cell.userInteractionEnabled = NO;
+        cell.userInteractionEnabled = NO; // prevent toggling
 
         if([self checkForWinCondition]) {
             NSString *currentPlayerString = self.isPlayerXTurn ? self.crossIcon : self.circleIcon;
@@ -146,6 +148,9 @@
 }
 
 - (void)presentEndGameAlertWithTitle:(NSString*)titleString optionalAttributedTitle:(NSAttributedString * _Nullable)attributedString {
+    // flag the game as ended so the user can't touch the empty cells
+    self.isGameOver = YES;
+
     UIAlertController *endGameAlert = [UIAlertController alertControllerWithTitle:titleString
                                                                       message:@"Play Again?"
                                                                preferredStyle:UIAlertControllerStyleAlert];

@@ -19,6 +19,7 @@
 @property(nonatomic) CGFloat maximizedTopBottomInset;
 @property(nonatomic, copy) NSString *crossIcon;
 @property(nonatomic, copy) NSString *circleIcon;
+@property(nonatomic) BOOL isGameOver;
 @end
 
 typedef enum {
