@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2CD0356C84FEA88E3B9A0E /* TicTacToeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDD687D6D0C42E1BBC730 /* TicTacToeCell.m */; };
 		AC2CD7723F6E31AE005DABB7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */; };
 		AC2CD9341D40249365835677 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AC2CD681E03726717D5A23D1 /* LICENSE */; };
-		AC2CD96D8E1DCB9F36C4CB8E /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDFE06D46DBB84DF12F34 /* BButton.m */; };
-		AC2CDE9F7B78A1F68B7D795A /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */; };
+		AC2CD991DEB2B3F8368D4ED4 /* CurrentPlayerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */; };
+		AC2CDCDBB336AEBCDD690814 /* StartNewGameFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */; };
 		AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */; };
 		D94ADEE01E5FD668002F3593 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEDF1E5FD668002F3593 /* main.m */; };
 		D94ADEE31E5FD668002F3593 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEE21E5FD668002F3593 /* AppDelegate.m */; };
-		D94ADEE61E5FD668002F3593 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEE51E5FD668002F3593 /* ViewController.m */; };
+		D94ADEE61E5FD668002F3593 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEE51E5FD668002F3593 /* MainViewController.m */; };
 		D94ADEE91E5FD668002F3593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ADEE71E5FD668002F3593 /* Main.storyboard */; };
 		D94ADEEC1E5FD668002F3593 /* _44TicTacToe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEEA1E5FD668002F3593 /* _44TicTacToe.xcdatamodeld */; };
 		D94ADEEE1E5FD668002F3593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D94ADEED1E5FD668002F3593 /* Assets.xcassets */; };
 		D94ADEF11E5FD668002F3593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ADEEF1E5FD668002F3593 /* LaunchScreen.storyboard */; };
 		D94ADEFC1E5FD668002F3593 /* _44TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEFB1E5FD668002F3593 /* _44TicTacToeTests.m */; };
 		D94ADF071E5FD668002F3593 /* _44TicTacToeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADF061E5FD668002F3593 /* _44TicTacToeUITests.m */; };
+		D94ADF1B1E5FF7E0002F3593 /* TicTacToeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D94ADF1A1E5FF7E0002F3593 /* TicTacToeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,20 +43,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC2CD1CE3FA3A4F1179FA819 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		AC2CD1B469D346957AAF176E /* CurrentPlayerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPlayerHeaderView.h; sourceTree = "<group>"; };
+		AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartNewGameFooterView.m; sourceTree = "<group>"; };
+		AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPlayerHeaderView.m; sourceTree = "<group>"; };
+		AC2CD5ECA1ECE553D8A4B2F5 /* TicTacToeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicTacToeCell.h; sourceTree = "<group>"; };
 		AC2CD681E03726717D5A23D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AC2CD79072141F51A4EF6641 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
-		AC2CD8D480F901C234025831 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
-		AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		AC2CD8ED0668AD293A2FACB4 /* StartNewGameFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartNewGameFooterView.h; sourceTree = "<group>"; };
 		AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		AC2CDD687D6D0C42E1BBC730 /* TicTacToeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicTacToeCell.m; sourceTree = "<group>"; };
 		AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = FontAwesome.ttf; sourceTree = "<group>"; };
-		AC2CDFE06D46DBB84DF12F34 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		D94ADEDB1E5FD668002F3593 /* 444TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 444TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94ADEDF1E5FD668002F3593 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D94ADEE11E5FD668002F3593 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D94ADEE21E5FD668002F3593 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D94ADEE41E5FD668002F3593 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D94ADEE51E5FD668002F3593 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D94ADEE41E5FD668002F3593 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D94ADEE51E5FD668002F3593 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D94ADEE81E5FD668002F3593 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D94ADEEB1E5FD668002F3593 /* _44TicTacToe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _44TicTacToe.xcdatamodel; sourceTree = "<group>"; };
 		D94ADEED1E5FD668002F3593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		D94ADF021E5FD668002F3593 /* 444TicTacToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 444TicTacToeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94ADF061E5FD668002F3593 /* _44TicTacToeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _44TicTacToeUITests.m; sourceTree = "<group>"; };
 		D94ADF081E5FD668002F3593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D94ADF1A1E5FF7E0002F3593 /* TicTacToeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicTacToeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +119,6 @@
 		AC2CDED18276E5B80DFDF98E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AC2CD1CE3FA3A4F1179FA819 /* BButton.h */,
-				AC2CDFE06D46DBB84DF12F34 /* BButton.m */,
-				AC2CD8D480F901C234025831 /* UIColor+BButton.h */,
-				AC2CD9DE9F51B1F62CEBB846 /* UIColor+BButton.m */,
 				AC2CD79072141F51A4EF6641 /* NSString+FontAwesome.h */,
 				AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */,
 			);
@@ -149,8 +150,8 @@
 			children = (
 				D94ADEE11E5FD668002F3593 /* AppDelegate.h */,
 				D94ADEE21E5FD668002F3593 /* AppDelegate.m */,
-				D94ADEE41E5FD668002F3593 /* ViewController.h */,
-				D94ADEE51E5FD668002F3593 /* ViewController.m */,
+				D94ADEE41E5FD668002F3593 /* MainViewController.h */,
+				D94ADEE51E5FD668002F3593 /* MainViewController.m */,
 				D94ADEE71E5FD668002F3593 /* Main.storyboard */,
 				D94ADEED1E5FD668002F3593 /* Assets.xcassets */,
 				D94ADEEF1E5FD668002F3593 /* LaunchScreen.storyboard */,
@@ -158,6 +159,13 @@
 				D94ADEEA1E5FD668002F3593 /* _44TicTacToe.xcdatamodeld */,
 				D94ADEDE1E5FD668002F3593 /* Supporting Files */,
 				AC2CD59641F40E1A8A6A9CCE /* BButton */,
+				D94ADF1A1E5FF7E0002F3593 /* TicTacToeCell.xib */,
+				AC2CDD687D6D0C42E1BBC730 /* TicTacToeCell.m */,
+				AC2CD5ECA1ECE553D8A4B2F5 /* TicTacToeCell.h */,
+				AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */,
+				AC2CD1B469D346957AAF176E /* CurrentPlayerHeaderView.h */,
+				AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */,
+				AC2CD8ED0668AD293A2FACB4 /* StartNewGameFooterView.h */,
 			);
 			path = 444TicTacToe;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 			files = (
 				D94ADEF11E5FD668002F3593 /* LaunchScreen.storyboard in Resources */,
 				D94ADEEE1E5FD668002F3593 /* Assets.xcassets in Resources */,
+				D94ADF1B1E5FF7E0002F3593 /* TicTacToeCell.xib in Resources */,
 				D94ADEE91E5FD668002F3593 /* Main.storyboard in Resources */,
 				AC2CD9341D40249365835677 /* LICENSE in Resources */,
 				AC2CD7723F6E31AE005DABB7 /* FontAwesome.ttf in Resources */,
@@ -327,12 +336,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D94ADEEC1E5FD668002F3593 /* _44TicTacToe.xcdatamodeld in Sources */,
-				D94ADEE61E5FD668002F3593 /* ViewController.m in Sources */,
+				D94ADEE61E5FD668002F3593 /* MainViewController.m in Sources */,
 				D94ADEE31E5FD668002F3593 /* AppDelegate.m in Sources */,
 				D94ADEE01E5FD668002F3593 /* main.m in Sources */,
-				AC2CD96D8E1DCB9F36C4CB8E /* BButton.m in Sources */,
-				AC2CDE9F7B78A1F68B7D795A /* UIColor+BButton.m in Sources */,
 				AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */,
+				AC2CD0356C84FEA88E3B9A0E /* TicTacToeCell.m in Sources */,
+				AC2CD991DEB2B3F8368D4ED4 /* CurrentPlayerHeaderView.m in Sources */,
+				AC2CDCDBB336AEBCDD690814 /* StartNewGameFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +582,7 @@
 				D94ADF0D1E5FD668002F3593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D94ADF0E1E5FD668002F3593 /* Build configuration list for PBXNativeTarget "444TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +591,7 @@
 				D94ADF101E5FD668002F3593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D94ADF111E5FD668002F3593 /* Build configuration list for PBXNativeTarget "444TicTacToeUITests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +600,7 @@
 				D94ADF131E5FD668002F3593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
