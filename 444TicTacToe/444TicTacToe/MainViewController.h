@@ -8,18 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class BButton;
-
 @interface MainViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) NSMutableArray <NSMutableArray <NSNumber *> *> *gameStateMatrix;
-@property (nonatomic) BOOL isPlayerXTurn;
-
-@property(nonatomic) CGFloat maximizedCellWidth;
-@property(nonatomic) CGFloat maximizedTopBottomInset;
-@property(nonatomic, copy) NSString *crossIcon;
-@property(nonatomic, copy) NSString *circleIcon;
-@property(nonatomic) BOOL isGameOver;
 @end
 
 typedef enum {

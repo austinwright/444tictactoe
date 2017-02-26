@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TicTacToeCollectionLayout"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TicTacToeCell" id="FGV-4D-lK5" customClass="TicTacToeCell">
             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -34,7 +34,7 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="playerTokenLabel" destination="CJM-M7-7nq" id="4Eu-ob-tfe"/>
+                <outlet property="playerTokenLabel" destination="CJM-M7-7nq" id="l5m-3F-7UB"/>
             </connections>
             <point key="canvasLocation" x="91" y="-43"/>
         </collectionViewCell>

@@ -11,7 +11,6 @@
 		AC2CD7723F6E31AE005DABB7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */; };
 		AC2CD9341D40249365835677 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AC2CD681E03726717D5A23D1 /* LICENSE */; };
 		AC2CD991DEB2B3F8368D4ED4 /* CurrentPlayerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */; };
-		AC2CDCDBB336AEBCDD690814 /* StartNewGameFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */; };
 		AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */; };
 		D94ADEE01E5FD668002F3593 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEDF1E5FD668002F3593 /* main.m */; };
 		D94ADEE31E5FD668002F3593 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADEE21E5FD668002F3593 /* AppDelegate.m */; };
@@ -44,12 +43,10 @@
 
 /* Begin PBXFileReference section */
 		AC2CD1B469D346957AAF176E /* CurrentPlayerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPlayerHeaderView.h; sourceTree = "<group>"; };
-		AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartNewGameFooterView.m; sourceTree = "<group>"; };
 		AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPlayerHeaderView.m; sourceTree = "<group>"; };
 		AC2CD5ECA1ECE553D8A4B2F5 /* TicTacToeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicTacToeCell.h; sourceTree = "<group>"; };
 		AC2CD681E03726717D5A23D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AC2CD79072141F51A4EF6641 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
-		AC2CD8ED0668AD293A2FACB4 /* StartNewGameFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartNewGameFooterView.h; sourceTree = "<group>"; };
 		AC2CDAFF775588FBE8648390 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 		AC2CDD687D6D0C42E1BBC730 /* TicTacToeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicTacToeCell.m; sourceTree = "<group>"; };
 		AC2CDE4D2A77D0F639AFC999 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -164,8 +161,6 @@
 				AC2CD5ECA1ECE553D8A4B2F5 /* TicTacToeCell.h */,
 				AC2CD57317707B8E117A749D /* CurrentPlayerHeaderView.m */,
 				AC2CD1B469D346957AAF176E /* CurrentPlayerHeaderView.h */,
-				AC2CD361B46B81202AE31650 /* StartNewGameFooterView.m */,
-				AC2CD8ED0668AD293A2FACB4 /* StartNewGameFooterView.h */,
 			);
 			path = 444TicTacToe;
 			sourceTree = "<group>";
@@ -342,7 +337,6 @@
 				AC2CDFAB78D54109491F34BE /* NSString+FontAwesome.m in Sources */,
 				AC2CD0356C84FEA88E3B9A0E /* TicTacToeCell.m in Sources */,
 				AC2CD991DEB2B3F8368D4ED4 /* CurrentPlayerHeaderView.m in Sources */,
-				AC2CDCDBB336AEBCDD690814 /* StartNewGameFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
