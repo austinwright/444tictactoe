@@ -10,12 +10,26 @@
 #import "TicTacToeCell.h"
 #import "NSString+FontAwesome.h"
 #import "CurrentPlayerHeaderView.h"
-#import "StartNewGameFooterView.h"
 
 #define LEFT_RIGHT_CONTENT_INSET 50
+
+// todo try to determine this dynamically without affecting the cell size and top/bottom inset calculations
 #define HEADER_FOOTER_HEIGHT 125
 
 @interface MainViewController ()
+
+@property (nonatomic, strong) NSMutableArray <NSMutableArray <NSNumber *> *> *gameStateMatrix;
+
+@property(nonatomic) CGSize maximizedCellSize;
+@property(nonatomic) CGFloat maximizedTopBottomInset;
+
+// todo: is there a better way to store these for the class scope?
+@property(nonatomic, copy) NSString *crossIcon;
+@property(nonatomic, copy) NSString *circleIcon;
+
+// state flags
+@property (nonatomic) BOOL isPlayerXTurn;
+@property(nonatomic) BOOL isGameOver;
 
 @end
 
@@ -48,10 +62,11 @@
     int numColumns = (int) self.gameStateMatrix[0].count;
 
     // width less insets, less 1px spacing between cells, divided by number of columns
-    self.maximizedCellWidth = (screenWidth - LEFT_RIGHT_CONTENT_INSET*2 - (numColumns-1) ) / numColumns;
+    CGFloat cellHeightAndWidth = (screenWidth - (LEFT_RIGHT_CONTENT_INSET * 2) - (numColumns-1) ) / numColumns;
+    self.maximizedCellSize = CGSizeMake(cellHeightAndWidth, cellHeightAndWidth); // square cells
 
-    // height of the collection, less the header and footer, less the space between cells, less the size of the cells, divided by 2
-    self.maximizedTopBottomInset = (screenHeight - (HEADER_FOOTER_HEIGHT * 2) - (numRows - 1) - (numRows * self.maximizedCellWidth) ) / 2;
+    // height of the collection, less the header and footer, less the space between cells, less the size of the cells, split evenly between top and bottom
+    self.maximizedTopBottomInset = (screenHeight - (HEADER_FOOTER_HEIGHT * 2) - (numRows - 1) - (numRows * self.maximizedCellSize.height) ) / 2;
 }
 
 
@@ -184,20 +199,19 @@
     }
 
     if (kind == UICollectionElementKindSectionFooter) {
-        StartNewGameFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                                                  withReuseIdentifier:@"StartNewGameFooterView" forIndexPath:indexPath];
-        reusableView = footerView;
+        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                          withReuseIdentifier:@"StartNewGameFooterView" forIndexPath:indexPath];
     }
 
     return reusableView;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize result = CGSizeMake(self.maximizedCellWidth,self.maximizedCellWidth);
-    return result;
+    return self.maximizedCellSize;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    // only one section
     UIEdgeInsets result = UIEdgeInsetsMake(self.maximizedTopBottomInset, LEFT_RIGHT_CONTENT_INSET, self.maximizedTopBottomInset, LEFT_RIGHT_CONTENT_INSET);
     return result;
 }

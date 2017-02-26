@@ -5,8 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TicTacToeCell : UICollectionViewCell 
-
-@property (nonatomic, strong) IBOutlet UILabel *playerTokenLabel;
+@interface TicTacToeCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *playerTokenLabel;
 
 @end

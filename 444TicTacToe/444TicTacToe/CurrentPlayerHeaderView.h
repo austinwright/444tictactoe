@@ -3,11 +3,10 @@
 // Copyright (c) 2017 Austin Wright. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface CurrentPlayerHeaderView : UICollectionReusableView
 
-@property (nonatomic, strong) IBOutlet UILabel *currentPlayerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentPlayerLabel;
 
 @end
