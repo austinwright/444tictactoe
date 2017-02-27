@@ -33,21 +33,45 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Player:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC3-7N-Qoj">
-                                    <rect key="frame" x="96" y="52" width="115" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mVl-C3-4Rx">
-                                    <rect key="frame" x="219" y="32" width="60" height="60"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="60"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4l-D1-LDl">
+                                    <rect key="frame" x="27.5" y="0.0" width="320" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Player:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC3-7N-Qoj">
+                                            <rect key="frame" x="69" y="52" width="115" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="9nR-KA-YTr"/>
+                                                <constraint firstAttribute="width" constant="115" id="ePb-sD-tGn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mVl-C3-4Rx">
+                                            <rect key="frame" x="192" y="32" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Wff-L8-GUw"/>
+                                                <constraint firstAttribute="width" constant="60" id="ypC-BM-7Yh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="60"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="JC3-7N-Qoj" firstAttribute="centerY" secondItem="w4l-D1-LDl" secondAttribute="centerY" id="2pD-u6-weW"/>
+                                        <constraint firstAttribute="height" constant="125" id="578-y7-rNp"/>
+                                        <constraint firstAttribute="width" constant="320" id="AGe-un-6S3"/>
+                                        <constraint firstItem="mVl-C3-4Rx" firstAttribute="centerY" secondItem="w4l-D1-LDl" secondAttribute="centerY" id="BCw-8Y-CgO"/>
+                                        <constraint firstItem="JC3-7N-Qoj" firstAttribute="leading" secondItem="w4l-D1-LDl" secondAttribute="leading" constant="69" id="flB-At-LWO"/>
+                                        <constraint firstItem="mVl-C3-4Rx" firstAttribute="leading" secondItem="JC3-7N-Qoj" secondAttribute="trailing" constant="8" id="r5V-Ou-bKz"/>
+                                    </constraints>
+                                </view>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="w4l-D1-LDl" firstAttribute="centerX" secondItem="pCa-AY-Jxb" secondAttribute="centerX" id="kY6-9Y-rqT"/>
+                                <constraint firstItem="w4l-D1-LDl" firstAttribute="centerY" secondItem="pCa-AY-Jxb" secondAttribute="centerY" id="l7Z-bD-X9c"/>
+                            </constraints>
                             <connections>
                                 <outlet property="currentPlayerLabel" destination="mVl-C3-4Rx" id="mRh-Rs-jtd"/>
                             </connections>
@@ -56,10 +80,13 @@
                             <rect key="frame" x="0.0" y="225" width="375" height="125"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPA-ND-oBB">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPA-ND-oBB">
                                     <rect key="frame" x="100" y="37" width="175" height="50"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.0" green="0.74117647058823533" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="PYs-qL-a3p"/>
+                                        <constraint firstAttribute="width" constant="175" id="UGB-ZE-SA2"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                     <state key="normal" title="NEW GAME">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,6 +96,10 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="fPA-ND-oBB" firstAttribute="centerX" secondItem="GQJ-Rv-tOh" secondAttribute="centerX" id="fgc-BI-ZnV"/>
+                                <constraint firstItem="fPA-ND-oBB" firstAttribute="centerY" secondItem="GQJ-Rv-tOh" secondAttribute="centerY" id="p8l-LO-rmV"/>
+                            </constraints>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="BYZ-38-t0r" id="1B9-dE-bas"/>
@@ -78,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
+            <point key="canvasLocation" x="24.375" y="33.75"/>
         </scene>
     </scenes>
 </document>

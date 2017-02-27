@@ -13,7 +13,7 @@
 
 #define LEFT_RIGHT_CONTENT_INSET 50
 
-// todo try to determine this dynamically without affecting the cell size and top/bottom inset calculations
+// todo: try to determine this dynamically without affecting the cell size and top/bottom inset calculations
 #define HEADER_FOOTER_HEIGHT 125
 
 @interface MainViewController ()
@@ -23,7 +23,6 @@
 @property(nonatomic) CGSize maximizedCellSize;
 @property(nonatomic) CGFloat maximizedTopBottomInset;
 
-// todo: is there a better way to store these for the class scope?
 @property(nonatomic, copy) NSString *crossIcon;
 @property(nonatomic, copy) NSString *circleIcon;
 
